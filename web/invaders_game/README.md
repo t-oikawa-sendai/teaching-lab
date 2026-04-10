@@ -1,4 +1,4 @@
-<!-- スクショ追加予定 ![ゲーム画面](images/screenshot.png) -->
+![ゲーム画面](images/screenshot.png)
 
 # インベーダーゲーム (Space Invaders) - Web版
 
