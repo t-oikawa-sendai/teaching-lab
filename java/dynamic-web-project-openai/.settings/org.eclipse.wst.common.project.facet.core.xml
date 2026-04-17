@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Program:
+Lang:
+Function:
+Note:
+Author:Takashi Oikawa
+Date:2026/04/17
+LastUp:2026/04/17
+Update:20260417
+-->
+<faceted-project>
+  <!--
+    初学者向けメモ:
+    - Tomcat 10 以降は "Jakarta" 系（jakarta.servlet.*）を使います。
+    - Web ファセットの 5.0 は Servlet 5.0（Jakarta Servlet 5）相当です。
+    - Java のバージョンは教材の都合で変えて構いません（例は 21）。
+  -->
+  <installed facet="java" version="21"/>
+  <installed facet="jst.web" version="5.0"/>
+  <installed facet="wst.jsdt.web" version="1.0"/>
+</faceted-project>
