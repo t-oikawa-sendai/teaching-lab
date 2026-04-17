@@ -230,6 +230,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
     /** 敵弾とバリア・自機の衝突。 */
     private void collideEnemyBullets() {
+        boolean shouldClearEnemyBullets = false;
         for (Bullet bullet : enemyBullets) {
             if (!bullet.isAlive()) {
                 continue;
@@ -247,7 +248,12 @@ public class GamePanel extends JPanel implements ActionListener {
             if (br.intersects(player.getBounds())) {
                 bullet.setAlive(false);
                 onPlayerHit();
+                shouldClearEnemyBullets = true;
+                break;
             }
+        }
+        if (shouldClearEnemyBullets) {
+            enemyBullets.clear();
         }
         removeDead(enemyBullets);
     }
@@ -255,7 +261,6 @@ public class GamePanel extends JPanel implements ActionListener {
     private void onPlayerHit() {
         lives -= 1;
         player.resetPosition();
-        enemyBullets.clear();
         if (lives <= 0) {
             state = STATE_GAME_OVER;
         }
