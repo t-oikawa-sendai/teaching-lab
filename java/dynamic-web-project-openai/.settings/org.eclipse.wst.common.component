@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Program:
+Lang:
+Function:
+Note:
+Author:Takashi Oikawa
+Date:2026/04/17
+LastUp:2026/04/17
+Update:20260417
+-->
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="dynamic-web-project-openai">
+        <!-- Web ルート（JSP や静的ファイル） -->
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+
+        <!-- Java クラス（Servlet/Util 等） -->
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+
+        <!--
+          context-root は URL の先頭（例: http://localhost:8080/dynamic-web-project-openai/）
+          Eclipse でサーバへ追加するときに調整してもOKです。
+        -->
+        <property name="context-root" value="dynamic-web-project-openai"/>
+        <property name="java-output-path" value="/dynamic-web-project-openai/bin"/>
+    </wb-module>
+</project-modules>

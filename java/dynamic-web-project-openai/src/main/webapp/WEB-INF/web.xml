@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Program:
+Lang:XML
+Function:Webアプリ設定（Jakarta Servlet / Tomcat10+）
+Note:サーブレット定義と開始ページを設定する
+Author:Takashi Oikawa
+Date:2026/04/17
+LastUp:2026/04/17
+Update:20260417
+-->
+<web-app
+	xmlns="https://jakarta.ee/xml/ns/jakartaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+	version="5.0">
+
+	<!--
+		初学者向けメモ:
+		- Tomcat 10 以降では javax.servlet.* ではなく、jakarta.servlet.* を使います。
+		- JSP は /WEB-INF 配下に置くと「URL直打ちで開けない」ため、Servlet経由の表示にできます。
+	-->
+
+	<display-name>dynamic-web-project-openai</display-name>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<servlet>
+		<servlet-name>TimerMeasureServlet</servlet-name>
+		<servlet-class>jp.ac.teachinglab.timer.web.TimerMeasureServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>TimerMeasureServlet</servlet-name>
+		<url-pattern>/measure</url-pattern>
+	</servlet-mapping>
+
+</web-app>
