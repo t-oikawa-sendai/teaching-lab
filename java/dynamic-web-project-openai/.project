@@ -1,14 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-Program:
-Lang:
-Function:
-Note:
-Author:Takashi Oikawa
-Date:2026/04/17
-LastUp:2026/04/17
-Update:20260417
--->
 <projectDescription>
 	<name>dynamic-web-project-openai</name>
 	<comment></comment>
@@ -30,8 +20,14 @@ Update:20260417
 			<arguments>
 			</arguments>
 		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.m2e.core.maven2Builder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
 	</buildSpec>
 	<natures>
+		<nature>org.eclipse.m2e.core.maven2Nature</nature>
 		<nature>org.eclipse.jem.workbench.JavaEMFNature</nature>
 		<nature>org.eclipse.wst.common.modulecore.ModuleCoreNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>

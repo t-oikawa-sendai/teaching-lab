@@ -8,6 +8,7 @@ __pycache__/
 *.class
 bin/
 build/
+target/
 
 # IDE
 .idea/

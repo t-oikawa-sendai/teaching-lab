@@ -1,17 +1,17 @@
 package com.example.timer;
 
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
-
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * Java 時間計測デモ Servlet
@@ -28,8 +28,7 @@ import jakarta.servlet.http.HttpServletResponse;
  * 【アクセス方法】
  *   ブラウザで http://localhost:8080/[プロジェクト名]/timer を開く
  */
-//@WebServlet("/timer")
-@WebServlet("/")
+@WebServlet("/timer")
 public class TimerServlet extends HttpServlet {
 
     // =========================================================
