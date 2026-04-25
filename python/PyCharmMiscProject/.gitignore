@@ -1,0 +1,13 @@
+# OS / IDE
+.DS_Store
+.idea/
+
+# Python venv (machine-specific)
+.venv/
+__pycache__/
+*.pyc
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+*.log

@@ -1,0 +1,16 @@
+ <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+
+<body>
+	<form th:action="@{/ex374}" method="post" th:object="${bread}">
+		品名:<input type="text" th:field="*{name}"><br>
+		価格:<input type="text" th:field="*{price}"><br>
+		<input type="submit" value="送信">
+	</form>
+</body>
+ 
+</html>

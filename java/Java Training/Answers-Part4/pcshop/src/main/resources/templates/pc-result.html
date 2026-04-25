@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>PCの仕様</title>
+</head>
+<body>
+	<h1>PCの仕様</h1>
+	<table th:object="${pcForm}">
+		<tr>
+			<td>CPU：</td>
+			<td th:text="*{cpu}">Intel</td>
+		</tr>
+		<tr>
+			<td>メモリ：</td>
+			<td th:text="*{memory}+'GB'">16GB</td>
+		</tr>
+		<tr>
+			<td>OS：</td>
+			<td th:text="*{os}">Windows</td>
+		</tr>
+		<!-- 
+		<tr>
+			<td>ストレージ：</td>
+			<td th:text="*{storage}">[HDD,STA-SSD]</td>
+		</tr>
+		 -->
+		<tr>
+			<td>ストレージ：</td>
+			<td th:text="${#strings.listJoin(pcForm.storage, ',')}">HDD,STA-SSD</td>
+	    <tr>
+	</table>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

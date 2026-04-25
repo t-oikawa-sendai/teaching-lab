@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>書籍データ修正</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f0f0;
+        }
+        .custom-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px 50px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .error-message {
+            color: red;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="custom-container mt-5">
+            <h1 class="mb-4">書籍データ修正</h1>
+            <form th:action="@{/book/edit}" method="post" th:object="${bookForm}">
+                <div class="mb-3 row">
+                    <label for="title" class="col-sm-2 col-form-label">題名：</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="title" th:field="*{title}">
+                        <span th:errors="*{title}" class="error-message"></span>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="date" class="col-sm-2 col-form-label">発行日：</label>
+                    <div class="col-sm-3">
+                        <input type="date" class="form-control" id="date" th:field="*{date}">
+                        <span th:errors="*{date}" class="error-message"></span>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="price" class="col-sm-2 col-form-label">価格：</label>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" id="price" th:field="*{price}">
+                        <span th:errors="*{price}" class="error-message"></span>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">タイプ：</label>
+                    <div class="col-sm-10">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" th:field="*{mediaType}" value="印刷本" id="printBook">
+                            <label class="form-check-label" for="printBook">印刷本</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" th:field="*{mediaType}" value="電子書籍" id="eBook">
+                            <label class="form-check-label" for="eBook">電子書籍</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" th:field="*{mediaType}" value="オーディオブック" id="audioBook">
+                            <label class="form-check-label" for="audioBook">オーディオブック</label>
+                        </div>
+                        <span th:errors="*{mediaType}" class="error-message d-block"></span>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-sm-10 offset-sm-2">
+                        <button type="submit" class="btn btn-primary me-2">修正</button>
+                        <a th:href="@{/book/list}" class="btn btn-secondary input-shift">キャンセル</a>
+                    </div>
+                </div>
+                <input type="hidden" th:field="*{id}">
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (オプション) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

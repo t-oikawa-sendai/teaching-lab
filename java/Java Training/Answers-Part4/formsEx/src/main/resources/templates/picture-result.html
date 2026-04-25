@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>city</title>
+</head>
+<body>
+	好きな果物：
+	<span th:text="${picture}">メロン</span>
+	<br><img th:src="@{'/images/' + ${picture} + '.jpg'}">
+</body>
+</html>

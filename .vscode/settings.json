@@ -1,0 +1,8 @@
+{
+  "java.project.sourcePaths": [
+    "java/invaders_game"
+  ],
+  "java.project.outputPath": "java/invaders_game/bin",
+  "java.debug.settings.onBuildFailureProceed": true,
+  "java.compile.nullAnalysis.mode": "automatic"
+}

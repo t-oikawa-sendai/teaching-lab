@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+	<ul th:if="${stock}">
+		<li th:each="item : ${items}" th:text="${item}">grape</li>
+	</ul>
+	<p th:unless="${stock}">在庫なし</p>
+</body>
+</html>

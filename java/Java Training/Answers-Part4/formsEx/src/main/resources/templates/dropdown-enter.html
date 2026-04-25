@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>select</title>
+</head>
+<body>
+	<form th:action="@{/transport}" method="post">
+		<select name="transport">
+			<option value="none">選択してください</option>
+			<option value="鉄道">鉄道</option>
+			<option value="飛行機">飛行機</option>
+			<option value="バス">バス</option>
+		</select>
+		<input type="submit" value="送信">
+	</form>
+</body>
+</html>

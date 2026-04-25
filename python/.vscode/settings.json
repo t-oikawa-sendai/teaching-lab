@@ -1,0 +1,7 @@
+{
+  "python.defaultInterpreterPath": "/Users/takashioikawa/Dev/teaching-lab/python/.venv/bin/python",
+  "python.analysis.extraPaths": [
+    "/Users/takashioikawa/Dev/teaching-lab/python/.venv/lib/python3.14/site-packages"
+  ],
+  "python-envs.pythonProjects": []
+}

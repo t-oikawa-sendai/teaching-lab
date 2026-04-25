@@ -1,0 +1,14 @@
+ 
+ <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+	<div th:object="${bread}" > 
+		品名：<span th:text="*{name}">アンパン</span><br> 
+		価格：<span th:text="*{price}">150</span>
+	</div>
+</body>
+</html>

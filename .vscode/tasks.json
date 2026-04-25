@@ -1,0 +1,24 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "HealthCheck: Jetty で起動",
+      "type": "shell",
+      "command": "mvn jetty:run",
+      "options": {
+        "cwd": "${workspaceFolder}/java/HealthCheck",
+        "env": {}
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "focus": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}

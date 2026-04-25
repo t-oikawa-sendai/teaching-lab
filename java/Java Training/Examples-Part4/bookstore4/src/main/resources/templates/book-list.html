@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Book List</title>
+</head>
+<body>
+    <h1>書籍リスト</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>題名</th>
+            <th>発行日</th>
+            <th>価格</th>
+            <th>メディアタイプ</th>
+        </tr>
+		<tr th:each="book:${books}"> 
+            <td th:text="${book.id}">1</td> 
+            <td th:text="${book.title}">情報倫理</td> 
+            <td th:text="${book.date}">2035-03-10</td> 
+            <td th:text="${book.price}">3000</td>
+			<td th:text="${#strings.listJoin(book.mediaType, ',')}">印刷本</td>
+			<td>
+				<a th:href="@{/book/{id}/edit   (id=${book.id}) }">修正</a>
+				<a th:href="@{/book/{id}/delete (id=${book.id}) }">削除</a>
+			</td>
+		</tr>           
+    </table>
+    <a th:href="@{/book/create}">新規作成</a>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

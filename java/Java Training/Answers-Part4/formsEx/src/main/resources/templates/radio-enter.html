@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>city</title>
+</head>
+<body>
+	<form th:action="@{/city}" method="post">
+		<input type="radio" name="city" value="東京">東京
+		<input type="radio" name="city" value="大阪">大阪
+		<input type="radio" name="city" value="福岡">福岡
+		<br><input type="submit" value="送信">
+	</form>
+</body>
+</html>

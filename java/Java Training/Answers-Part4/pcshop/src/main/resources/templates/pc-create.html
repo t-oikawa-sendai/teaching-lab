@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>PC仕様入力フォーム</title>
+</head>
+<body>
+    <h2>PC仕様入力フォーム</h2>
+    <form th:action="@{/pc/create}" method="post" th:object="${pcForm}">
+        <table>
+            <tr>
+                <td>CPU:</td>
+                <td>
+                	<input type="text" th:field="*{cpu}">
+                </td>
+            </tr>
+            <tr>
+                <td>メモリ:</td>
+                <td>
+                	<input type="number" th:field="*{memory}">
+                </td>
+            </tr>
+            <tr>
+                <td>OS:</td>
+                <td>
+                    <select th:field="*{os}">
+                        <option value="Windows">Windows</option>
+                        <option value="MacOS">MacOS</option>
+                        <option value="Linux">Linux</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>ストレージ:</td>
+                <td>
+                    <input type="checkbox" th:field="*{storage}" value="HDD">HDD
+                    <input type="checkbox" th:field="*{storage}" value="STA-SSD">STA SSD
+                    <input type="checkbox" th:field="*{storage}" value="NVMe-SSD">NVMe SSD
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="作成">
+    </form>
+</body>
+</html>

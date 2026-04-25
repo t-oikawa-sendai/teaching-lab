@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>picture</title>
+</head>
+<body>
+	<form th:action="@{/picture}" method="post">
+		<input type="radio" name="picture" value="リンゴ">リンゴ
+		<input type="radio" name="picture" value="オレンジ">オレンジ
+		<input type="radio" name="picture" value="ぶどう">ぶどう
+		<br><input type="submit" value="送信">
+	</form>
+</body>
+</html>

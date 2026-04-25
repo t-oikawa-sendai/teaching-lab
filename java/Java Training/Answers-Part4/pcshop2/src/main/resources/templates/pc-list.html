@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Book List</title>
+</head>
+<body>
+    <h1>PCリスト</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>CPU</th>
+            <th>メモリー</th>
+            <th>OS</th>
+            <th>ストレージ</th>
+        </tr>
+		<tr th:each="pc : ${pcs}"> 
+            <td th:text="${pc.id}">1</td> 
+            <td th:text="${pc.cpu}">Core i9</td> 
+            <td th:text="${pc.memory}">1128</td> 
+            <td th:text="${pc.os}">Windows</td> 
+            <td th:text="${#strings.listJoin(pc.storage, ',')}"></td> 
+            <td> 
+            	<a th:href="@{/pc/{id}/edit   (id=${pc.id}) }">修正</a> 
+            	<a th:href="@{/pc/{id}/delete (id=${pc.id}) }">削除</a> 
+            </td> 
+		</tr>
+    </table>
+    <a th:href="@{/pc/create}">新規作成</a>
+
+</body>
+</html>

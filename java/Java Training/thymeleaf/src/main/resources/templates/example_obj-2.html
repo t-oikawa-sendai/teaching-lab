@@ -1,0 +1,14 @@
+ 
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+	<div th:object="${user}" > 
+		番号：<span th:text="*{id}">999</span><br> 
+		氏名：<span th:text="*{name}">ユーザー名</span>
+	</div>
+</body>
+</html>

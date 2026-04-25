@@ -1,5 +1,7 @@
 # Python
 .venv/
+**/.venv/
+**/.venv_BROKEN*/
 __pycache__/
 *.pyc
 *.pyo
@@ -10,10 +12,15 @@ bin/
 build/
 target/
 
-# IDE
-.idea/
-.vscode/
+# Eclipse（ワークスペースローカル。リポジトリに含めない）
+**/.metadata/
+
+# IDE（機材依存のキャッシュ・インデックス）
+**/.idea/
 *.iml
+
+# Jupyter
+.ipynb_checkpoints/
 
 # OS
 .DS_Store

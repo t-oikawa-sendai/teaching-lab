@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>bookForm</title>
+<style> 
+	form {margin-left:20px;}
+	div {margin-bottom:20px; margin-top:20px;}
+</style>
+</head>
+<body>
+	<form >
+		<div>
+			<input type="text" name="address">
+		</div>			
+		<div>
+			<input type="date" name="birthday">
+		</div>
+		<div>
+			<input type="radio" name="size" value="large">大きい
+			<input type="radio" name="size" value="medium">普通
+			<input type="radio" name="size" value="small">小さい
+		</div>	
+		<div>
+			<input type="checkbox" name="article" value="政治">政治
+			<input type="checkbox" name="article" value="経済">経済
+			<input type="checkbox" name="article" value="社会">社会
+		</div>
+		<div>
+			<select name="city">
+				<option value="none">選択してください</option>
+				<option value="東京">東京</option>
+				<option value="大阪">大阪</option>
+				<option value="福岡">福岡</option>
+			</select>	
+		</div>
+		<div>
+			<textarea name="message" rows="5" cols="40" id="message"></textarea>
+		</div>
+		<div>
+			<input type="submit" value="送信">
+		</div>		
+	</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
