@@ -25,3 +25,6 @@ target/
 # OS
 .DS_Store
 Thumbs.db
+
+# Large binaries（配布物は別経路で渡す想定）
+java/Java Training/RegTester-1.0-mac/*.dmg
