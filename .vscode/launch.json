@@ -3,6 +3,34 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CalcDemoEX2",
+      "request": "launch",
+      "mainClass": "CalcDemoEX2",
+      "projectName": "Learn"
+    },
+    {
+      "type": "java",
+      "name": "CalcDemoEX1",
+      "request": "launch",
+      "mainClass": "CalcDemoEX1",
+      "projectName": "Learn"
+    },
+    {
+      "type": "java",
+      "name": "calc_demo",
+      "request": "launch",
+      "mainClass": "calc_demo",
+      "projectName": "Learn"
+    },
+    {
+      "type": "java",
+      "name": "calc_demo_EX",
+      "request": "launch",
+      "mainClass": "calc_demo_EX",
+      "projectName": "Learn"
+    },
+    {
+      "type": "java",
       "name": "インベーダー (Main)",
       "request": "launch",
       "mainClass": "Main",

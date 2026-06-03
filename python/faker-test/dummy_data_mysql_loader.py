@@ -15,15 +15,42 @@
 from __future__ import annotations
 
 import csv
+import os
 import random
 import re
+import sys
 import time
 from datetime import date, timedelta
 from pathlib import Path
 from typing import Any, Dict
 
-import mysql.connector
-from faker import Faker
+_SCRIPT_DIR = Path(__file__).resolve().parent
+_VENV_PY = _SCRIPT_DIR / ".venv" / "bin" / "python"
+_VENV_DIR = _SCRIPT_DIR / ".venv"
+
+# .venv が存在するのに system の Python で実行されている場合、
+# 依存未導入で即死しがちなので venv の Python で再実行する。
+if _VENV_PY.exists() and os.environ.get("FAKER_TEST_VENV_REEXEC") != "1":
+    # venv の python は system python への symlink になり得るため、
+    # executable の実体ではなく sys.prefix（環境ルート）で判定する。
+    if Path(sys.prefix).resolve() != _VENV_DIR.resolve():
+        os.environ["FAKER_TEST_VENV_REEXEC"] = "1"
+        os.execv(str(_VENV_PY), [str(_VENV_PY), *sys.argv])
+
+try:
+    from faker import Faker
+except ModuleNotFoundError as e:
+    raise ModuleNotFoundError(
+        "このスクリプトの実行には faker が必要です。\n"
+        "\n"
+        "macOS(Homebrew) の Python では system-wide の pip install が禁止(PEP 668)されることがあるため、"
+        "このフォルダ配下で venv を作って入れてください:\n"
+        "\n"
+        "  /opt/homebrew/bin/python3 -m venv python/faker-test/.venv\n"
+        "  python/faker-test/.venv/bin/python -m pip install -U pip\n"
+        "  python/faker-test/.venv/bin/python -m pip install -r python/faker-test/requirements.txt\n"
+        "  python/faker-test/.venv/bin/python python/faker-test/dummy_data_mysql_loader.py\n"
+    ) from e
 
 # ---------------------------------------------------------------------------
 # 定数定義
@@ -262,6 +289,14 @@ def connect_mysql():
         定数 HOST, PORT, USER, PASSWORD, DATABASE を用いて connect する。
         接続はコミット制御のため autocommit=False とする。
     """
+    try:
+        import mysql.connector  # type: ignore[import-not-found]
+    except ModuleNotFoundError as e:
+        raise ModuleNotFoundError(
+            "MySQL 取り込みには mysql-connector-python が必要です。"
+            " 例: python -m pip install mysql-connector-python"
+        ) from e
+
     return mysql.connector.connect(
         host=HOST,
         port=PORT,

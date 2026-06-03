@@ -1,0 +1,66 @@
+<!-- コード3-2 HTMLの出力（doGetメソッド内） -->
+protected void doGet(HttpServletRequest request, 
+ HttpServletResponse response) 
+ throws ServletException, IOException {
+response.setContentType("text/html; charset=UTF-8");
+PrintWriter out = response.getWriter();
+out.println("<html>");
+out.println("…");
+out.println("</html>");
+}
+　コード中に処理①、②と示した部分では、次のような処理を行っています。
+処理①　content-typeヘッダの設定
+HttpServletResponseのsetContentTypeメソッドを使用して、レスポンス
+のcontent-typeヘッダ（p.55）を指定します。指定する内容は、サーブレッ
+トクラスが出力するデータの種類に合わせる必要があります。HTMLを出力
+する場合は「"text/html; charset=HTMLの文字コード"」とします。コード
+3-2は、文字コードが「UTF-8」のHTMLを出力した例です。
+HelloServlet.java
+処理①
+処理②
+
+084
+第 II 部
+処理②　HTMLの出力
+　実行結果のHTMLを出力する処理です。この処理を行うのはcontent-type
+ヘッダの設定後でなければなりません。HttpServletResponseのgetWriter( )
+で取得できるjava.io.PrintWriterインスタンス（importが必要）のprintln( )
+で行います。これは、Javaを知る人にはおなじみのSystem.out.println()と
+同じように使用できます。HTMLは、処理①のsetContentType( )で設定した
+文字コードで出力されます。なお、HTMLを出力する文字コードは、サーブ
+レットクラスファイル自体の文字コードには左右されません。
+　以上の処理をまとめたものが図3-3になります。HTML出力の方法は、「お
+約束」の集まりです。構文として覚えてしまいましょう。
+UTF-8の
+HTML
+（content-typeヘッダを見て）
+送られてくるのはUTF-8のHTMLか。
+よしUTF-8を使おう！
+（content-typeヘッダを見て）
+送られてくるのはUTF-8のHTMLか。
+よしUTF-8を使おう！
+レスポンス
+ブラウザ
+HTMLを出力する処理
+サーブレットクラス
+アプリケーションサーバ
+HTTP/1.1 200 OK
+content-length: 4122
+server: Apache
+･･･
+content-type: text/html; charset=UTF-8
+<html>
+...
+</html>
+response.setContentType("text/html; charset=UTF-8");
+PrintWriter out = response.getWriter();
+out.println(“<html>”);
+out.println(“……”);
+out.println("</html>");
+ 図3-3 HTMLのレスポンス
+サーブレットクラスでHTMLを出力する
+response.setContentType("text/html; charset=文字コード");
+PrintWriter out = response.getWriter( );
+out.println("…");
+※「java.io.PrintWriter」をインポートする必要がある。
+※「response」はHttpServletResponseインスタンス。
